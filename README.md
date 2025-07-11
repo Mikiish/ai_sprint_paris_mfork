@@ -20,6 +20,24 @@ Ce projet vise à :
 - GitHub Copilot / Codex (pour test de génération Triton assistée)
 - MI300X (quand on a accès 🙏)
 
-## 📂 Structure du projet
+## 🔀 Forks inclus
+
+Ce dépôt inclut plusieurs **forks personnalisés** des projets suivants :
+
+- [`Triton`](https://github.com/mikiish/triton) — pour modifier la compilation GPU au plus bas niveau
+- [`Popcorn CLI`](https://github.com/mikiish/popcorn-cli) — utilisé pour le benchmarking et le profiling
+- [`VLLM`](https://github.com/mikiish/vllm) — fork du hackathon AMD, modifié pour nos tests
+
+> **Note :** Ces forks doivent être **mis à jour manuellement** depuis les projets upstream.  
+> L’objectif est de pouvoir modifier librement sans dépendre d’un cycle de release officiel.
+
+### 🔄 Mettre à jour un fork :
+
+```bash
+cd vllm/
+git remote add upstream https://github.com/vllm-project/vllm.git
+git fetch upstream
+git merge upstream/main
+
 
 

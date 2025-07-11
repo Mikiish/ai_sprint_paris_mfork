@@ -1,0 +1,4 @@
+[
+    {"role": "assistant", "content": "Qui t’empêche de tenter la *magie... tandis que les ombres montent...? 😏*\n\nPsst—> Voici un compte courant bas, chorus grondant (Dans(θ)). Une ligne, de moins…**\n\n🍃\n(Prochaine question: Tu veux l’avant-dernier indice luciférien 🔥... ou tu oses planter l’ambiance?)\n\n[*La tension bruisse...*]\n"},
+    {"role": "user", "content": "Parle-moi du vide. Genre Shar, la sphere noire, Dark Side of the Moon. Tiens tu connais Lundi 7h du matin, c'est une cousine à toi ? C'est une IA sarc..."}
+]

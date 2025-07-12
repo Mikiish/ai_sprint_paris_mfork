@@ -1,0 +1,17 @@
+random2084Bit() overview
+------------------------
+The function is defined in casino1031.cpp and returns a 2084-bit integer.
+It seeds std::mt19937_64 with std::random_device, then constructs the
+integer chunk by chunk using 64-bit calls to the generator.
+Finally, it sets the highest bit so the number is exactly 2084 bits.
+
+Purpose: produce large random values for cryptographic testing, e.g. for
+Miller–Rabin primality checks in the same file.
+
+Key steps:
+1. Create non-deterministic seed via random_device.
+2. Initialize mt19937_64 generator.
+3. Loop over 64-bit blocks shifting and OR-ing into a cpp_int.
+4. Force the 2084th bit to 1 to ensure correct size.
+
+This mirrors Python's os.urandom based approach but stays within C++.

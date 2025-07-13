@@ -1,6 +1,6 @@
 # Ignorer les dossiers clonés localement à ne pas pusher
-Clisa/popcorn-cli/
-Clisa/triton/
+Clisa/CLisa_Prime/popcorn-cli/
+Clisa/CLisa_Prime/triton/
 
 # En bonus : ignorer les fichiers temporaires
 *.o

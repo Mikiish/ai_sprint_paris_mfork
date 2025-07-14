@@ -3,6 +3,10 @@
 .env/
 .venv
 .venv/
+Lisa/.env
+Lisa/.env/
+Lisa/.venv
+Lisa/.venv/
 
 # Ignorer tous les fichiers __pycache__
 __pycache__/

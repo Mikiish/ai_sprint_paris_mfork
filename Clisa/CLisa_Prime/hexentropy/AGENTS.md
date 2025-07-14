@@ -17,3 +17,13 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les modules complotent, rires électroniques.
+
+---
+### Aperçu technique en 7 points
+1. `hexentropy_tree.c` génère récursivement un motif hexadécimal en branchant deux threads par niveau.
+2. `hexentropy_v0.c` explore une version plus simple avec profondeur et taille limitées.
+3. `hexentropy_v1.c` affine la stratégie en fonction de la parité du segment traité.
+4. `hexentropy_tree_try.c` fournit un squelette d’examen pour compléter l’implémentation.
+5. Les fichiers README détaillent les choix algorithmiques et les options de compilation.
+6. Les programmes s’appuient sur `getrandom` pour collecter de l’entropie depuis le noyau.
+7. Chaque variante affiche le buffer final en hexadécimal afin de vérifier visuellement la distribution.

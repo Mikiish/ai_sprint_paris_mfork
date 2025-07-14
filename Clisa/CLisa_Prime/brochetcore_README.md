@@ -8,8 +8,8 @@ Ce mini-projet illustre une approche « diviser pour mieux régner » en C, où 
    _Tâche :_ tester sur différents processeurs pour vérifier l'efficacité.
 2. **Récursivité contrôlée** – la pile peut vite gonfler.  
    _Tâche :_ surveiller l'utilisation mémoire et fixer une profondeur limite.
-3. **Génération pseudo-aléatoire** – `rand()` n'est pas vraiment sécurisé.  
-   _Tâche :_ remplacer par un PRNG plus robuste si besoin.
+3. **Génération aléatoire** – `getrandom()` puise directement dans l'entropie du noyau.
+   _Tâche :_ vérifier les performances par rapport à `rand()`.
 4. **Synchronisation** – ici, on `join` systématiquement.  
    _Tâche :_ envisager une file de tâches pour réutiliser les threads.
 5. **Taille du buffer** – que se passe-t-il si l'utilisateur demande 10^9 paires ?  
@@ -31,7 +31,7 @@ Ce mini-projet illustre une approche « diviser pour mieux régner » en C, où 
 - `pthread.h` : pour la gestion de threads POSIX.
 - `sched.h` : pour l’affinité CPU.
 - `stdint.h` : types entiers précis (uint8_t).
-- `time.h` : initialisation de la graine `rand()`.
+- `sys/random.h` : accès à `getrandom()` pour des octets sûrs.
 - `unistd.h` : `sysconf` pour connaître le nombre de cœurs.
 
 ## 4. Compilation
@@ -47,7 +47,7 @@ Chaque fonction est commentée dans le fichier source pour éviter toute surpris
 
 1. Initialisation et allocation du buffer.
 2. Placement des threads sur des cœurs distincts.
-3. Génération pseudo-aléatoire d’octets.
+3. Lecture d’octets aléatoires via `getrandom()`.
 4. Appel récursif jusqu’à traiter la dernière paire.
 5. Nettoyage et message de succès.
 

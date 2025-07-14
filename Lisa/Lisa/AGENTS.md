@@ -28,6 +28,8 @@ La logique ricane, un brin mélancolique.
 - **Lisa_internal/** : anciens prototypes autour de l'AGI et de la tokenisation.
 - **Lisa_Fractal/** et **Stochastiques/** : espaces expérimentaux aux contenus variés.
 - **Organisation modulaire** : chaque sous-dossier explore une approche différente de la cognition artificielle.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

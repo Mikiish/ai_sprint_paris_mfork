@@ -19,6 +19,8 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 La logique ricane, un brin mélancolique.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

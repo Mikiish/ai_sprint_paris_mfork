@@ -26,6 +26,8 @@ Dans cette antre codée, l'humour pointe son nez.
 - Conserve le code tres court pour mise en place rapide.
 - Sert de base avant l'integration de fonctions plus complexes.
 - Simple demonstration de structure en dossiers separes.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

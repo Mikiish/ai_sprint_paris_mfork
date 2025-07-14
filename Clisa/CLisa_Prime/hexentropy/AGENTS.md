@@ -29,6 +29,8 @@ Les modules complotent, rires électroniques.
 5. Les fichiers README détaillent les choix algorithmiques et les options de compilation.
 6. Les programmes s’appuient sur `getrandom` pour collecter de l’entropie depuis le noyau.
 7. Chaque variante affiche le buffer final en hexadécimal afin de vérifier visuellement la distribution.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

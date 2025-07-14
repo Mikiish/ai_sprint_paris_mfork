@@ -26,6 +26,8 @@ Ici les bits s'agitent, clowns d'un jour agités.
 - Aucun traitement supplementaire n'est ajoute.
 - Sert de base a d'eventuelles evolutions connectees a des APIs.
 - Reste un exemple epure limite aux entrees/sorties basiques.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

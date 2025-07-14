@@ -26,6 +26,8 @@ Les scripts se chamaillent, farceurs d'informatique.
 - Prevu pour evoluer vers un traitement plus riche a l'etape suivante.
 - Utile pour tester la repetition des flux de donnees simples.
 - Minimaliste et rapide a executer dans n'importe quel environnement.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

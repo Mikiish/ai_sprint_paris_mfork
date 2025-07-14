@@ -17,3 +17,12 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Ici les bits s'agitent, clowns d'un jour agités.
+
+## Aperçu technique en 7 points
+- **Environnement Python** : `rebuild_venv.sh` installe un virtualenv et charge les dépendances listées dans `requirements.txt`.
+- **Dépendances lourdes** : la liste inclut `numba`, `sympy`, `streamlit` et d'autres bibliothèques pour le calcul scientifique et l'IHM.
+- **Documentation** : `README.md` décrit un projet d'AGI modulaire où chaque dossier représente une piste d'exploration.
+- **Partage** : le dossier `share/` contient un script `SumarryTikTok521.py` générant une phrase de 521 tokens.
+- **Structure du dépôt** : la sous-arborescence `Lisa/` abrite l'implémentation principale et ses modules internes.
+- **Construction d'outils** : divers scripts shell et Python servent à préparer l'environnement et expérimenter des idées.
+- **Orientation R&D** : la plupart des fichiers sont des prototypes servant de base à des développements plus poussés.

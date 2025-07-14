@@ -17,3 +17,12 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Dans cette antre codée, l'humour pointe son nez.
+
+## Aperçu technique en 7 points
+- **IsPrime.py** : implémente le test de Miller–Rabin pour vérifier la primalité, avec support des valeurs hexadécimales.
+- **PrimeCycleCheck.py** : combine facteurs de Carmichael, analyses Fourier et projections p-adiques pour inspecter un nombre donné.
+- **PrimeFinder.py** : cherche des cycles courts où 16^n ≡ p - 1 (mod p) et renvoie un tableau de résultats.
+- **SpectralVQ2.py** : expérimente des mutations quantiques sur les nombres premiers en multithreading avec visualisation.
+- **Modules auxiliaires** : scripts de mutation, générateurs de nombres hybrides et outils d'analyse spectrale.
+- **Explorations archivées** : répertoires `Prime_old` et `Spectral_old` conservent d'anciens tests pour référence.
+- **Orienté recherche cryptographique** : l'ensemble sert à étudier les propriétés rares des grands nombres premiers.

@@ -17,3 +17,13 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 La logique ricane, un brin mélancolique.
+
+---
+### Aperçu technique en 7 points
+1. `casino1031.cpp` génère un entier de 2084 bits et applique Miller‑Rabin pour tester sa primalité.
+2. Les fichiers `hexentropy_*` produisent des séquences hexadécimales en répartissant le travail via `pthread`.
+3. `brochetcore.c` montre une division récursive de buffer en fixant l’affinité CPU des threads.
+4. `__desfoisque.c` illustre une bifurcation de tâches où un entier est divisé par deux jusqu’à la base.
+5. `iqq.cpp` offre une routine vectorisée pour quantifier des valeurs float 128 en octets.
+6. `gui/` contient une interface Qt minimaliste et la fonction `generateRandom2084Bit` partagée via un header.
+7. Les outils annexes (`pilouface_rapide.c`, `random_hex_string.c`, etc.) servent de démonstrations rapides d’accès à l’entropie système.

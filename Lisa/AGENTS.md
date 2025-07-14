@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -26,3 +28,8 @@ Ici les bits s'agitent, clowns d'un jour agités.
 - **Structure du dépôt** : la sous-arborescence `Lisa/` abrite l'implémentation principale et ses modules internes.
 - **Construction d'outils** : divers scripts shell et Python servent à préparer l'environnement et expérimenter des idées.
 - **Orientation R&D** : la plupart des fichiers sont des prototypes servant de base à des développements plus poussés.
+
+
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

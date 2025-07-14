@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -27,3 +29,8 @@ Les fichiers dansent sous un halo fantastique.
 5. Le README fournit les commandes `g++` nécessaires à la compilation avec `pkg-config`.
 6. Les fichiers démontrent le passage d’un pointeur sur tableau pour manipuler l’historique.
 7. L’ensemble sert de prototype graphique minimal pour tester la génération d’entiers massifs.
+
+
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

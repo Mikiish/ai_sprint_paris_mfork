@@ -10,8 +10,8 @@ git clone https://github.com/triton-lang/triton.git
 cd triton
 
 python3 -m venv .venv --prompt triton
-python3 -m pip install --upgrade pip setuptools wheel
 source .venv/bin/activate
+pip install --upgrade pip setuptools wheel
 pip install -r python/requirements.txt 		# build-time dependencies
 pip install -e . --no-build-isolation
 

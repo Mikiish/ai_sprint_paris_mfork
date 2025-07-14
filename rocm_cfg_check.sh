@@ -1,6 +1,23 @@
 #!/bin/bash
 set -e
 
+# Desired ROCm version
+ROCM_VERSION="6.4.1"
+
+# Check if ROCm is already installed and matches desired version
+if ls /opt | grep -q "rocm-"; then
+    INSTALLED_VERSION=$(ls -d /opt/rocm-* 2>/dev/null | head -n1 | sed 's|/opt/rocm-||')
+    if [ "$INSTALLED_VERSION" = "$ROCM_VERSION" ]; then
+        echo "ROCm $ROCM_VERSION already installed. Nothing to do."
+        exit 0
+    else
+        echo "ROCm $INSTALLED_VERSION detected, but version $ROCM_VERSION requested."
+        echo "Continuing with installation of ROCm $ROCM_VERSION..."
+    fi
+else
+    echo "No existing ROCm installation detected. Installing ROCm $ROCM_VERSION..."
+fi
+
 # Make the directory if it doesn't exist yet.
 # This location is recommended by the distribution maintainers.
 sudo mkdir --parents --mode=0755 /etc/apt/keyrings

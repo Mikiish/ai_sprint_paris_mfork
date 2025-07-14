@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -26,3 +28,6 @@ Dans cette antre codée, l'humour pointe son nez.
 - **Modules auxiliaires** : scripts de mutation, générateurs de nombres hybrides et outils d'analyse spectrale.
 - **Explorations archivées** : répertoires `Prime_old` et `Spectral_old` conservent d'anciens tests pour référence.
 - **Orienté recherche cryptographique** : l'ensemble sert à étudier les propriétés rares des grands nombres premiers.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

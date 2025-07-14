@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -24,3 +26,6 @@ Les scripts se chamaillent, farceurs d'informatique.
 - Sert principalement de squelette pour des experiments plus avances.
 - Organisation identique a l'acte 1 pour faciliter la progression.
 - Conserve une dependance tres reduite a la bibliotheque standard.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

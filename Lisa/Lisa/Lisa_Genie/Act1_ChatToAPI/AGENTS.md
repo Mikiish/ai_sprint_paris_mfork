@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -24,3 +26,6 @@ Ici les bits s'agitent, clowns d'un jour agités.
 - La structure de dossier reste identique entre Part1, Part2 et Part3.
 - Ces fragments illustrent des manipulations de fichiers simples.
 - Peu ou pas de dependances externes sont necessaires.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

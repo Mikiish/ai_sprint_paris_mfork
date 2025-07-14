@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -26,3 +28,6 @@ Les scripts se chamaillent, farceurs d'informatique.
 5. **Résonance et propagation** : `PheromoneResonanceSimulator.py` illustre la diffusion d'un champ de phéromones en trois dimensions au cours du temps.
 6. **Parsing d'équations** : `PheromonEquationParser.py` convertit les équations différentielles en versions ornées d'émojis pour une lecture ludique.
 7. **Scripts utilitaires** : divers fichiers gèrent l'extraction de conversations JSON, la condensation de texte ou l'obtention d'informations chimiques depuis PubChem.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

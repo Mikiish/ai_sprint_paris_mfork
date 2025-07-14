@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -27,3 +29,6 @@ La logique ricane, un brin mélancolique.
 5. `iqq.cpp` offre une routine vectorisée pour quantifier des valeurs float 128 en octets.
 6. `gui/` contient une interface Qt minimaliste et la fonction `generateRandom2084Bit` partagée via un header.
 7. Les outils annexes (`pilouface_rapide.c`, `random_hex_string.c`, etc.) servent de démonstrations rapides d’accès à l’entropie système.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

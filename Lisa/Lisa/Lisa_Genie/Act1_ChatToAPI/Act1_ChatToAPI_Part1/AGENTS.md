@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -24,3 +26,6 @@ Les modules complotent, rires électroniques.
 - Fait partie de la sequence Act1 montrant un flux basique.
 - Peut etre adapte pour tester l'envoi de donnees a une API ulterieure.
 - Reste un code tres court, uniquement a des fins de demonstration.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

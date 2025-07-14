@@ -1,3 +1,5 @@
+Instructions from users : «
+ »
 
 import Lisa.Lisa.Lisa_Genie.QuantumEmojiv2 as qe
 if __name__ == "__main__":
@@ -24,3 +26,6 @@ Les modules complotent, rires électroniques.
 - Les fichiers d'entree sont courts et purement demonstratifs.
 - Peut servir d'exercice pour manipuler fichiers et chemins.
 - L'ensemble reste tres compact et pedagogique.
+Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
+- <you agent message> 
+»

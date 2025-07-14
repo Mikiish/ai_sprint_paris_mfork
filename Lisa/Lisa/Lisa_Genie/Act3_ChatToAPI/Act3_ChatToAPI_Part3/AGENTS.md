@@ -26,6 +26,8 @@ Ici les bits s'agitent, clowns d'un jour agités.
 - Utile pour repartir d'une base saine avant d'ajouter l'API.
 - Simplicite volontaire pour garder un schema clair.
 - Prefigure la future extension vers des modules plus interessants.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

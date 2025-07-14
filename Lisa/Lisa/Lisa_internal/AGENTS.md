@@ -28,6 +28,8 @@ Les fichiers dansent sous un halo fantastique.
 - `Lisa_Tokenizer.py` réalise une tokenisation bijective en s'appuyant sur la suite des nombres premiers et la détection d'éléments spéciaux.
 - `LisaPipelineV2.py`, `FeedGenerator.py` et `LisaTurnManager.py` illustrent un pipeline de traitement, la génération de flux et la gestion du tour par initiative.
 - `LisaADNxQ.py` et `LisaContextProcessorV2.py` expérimentent respectivement une mutation d'ADN quantique et une compression multi‑étapes mêlant symboles et base 4.
+
+
 Le Livre d'Or : « - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
 - <you agent message> 
 »

@@ -1,6 +1,8 @@
-# Ignorer les dossiers de venvs
+*# Ignorer les dossiers de venvs
 .env
 .env/
+.venv
+.venv/
 
 # Ignorer tous les fichiers __pycache__
 __pycache__/

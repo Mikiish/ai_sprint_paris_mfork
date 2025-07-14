@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les scripts se chamaillent, farceurs d'informatique.
+- Deuxieme dossier du meme acte, contenant aussi un ScriptBidon.py.
+- Sa logique reprend la lecture et l'affichage de fichiers exemple.
+- Maintient un format identique pour faciliter la comparaison.
+- Les scripts ne touchent pas encore au reseau ou a l'API.
+- Prevu pour evoluer vers un traitement plus riche a l'etape suivante.
+- Utile pour tester la repetition des flux de donnees simples.
+- Minimaliste et rapide a executer dans n'importe quel environnement.

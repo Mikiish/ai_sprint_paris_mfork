@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les scripts se chamaillent, farceurs d'informatique.
+- Deuxieme acte avec trois sous-dossiers paralleles.
+- Chaque partie contient encore un ScriptBidon.py minimaliste.
+- Les scripts repetent la lecture d'un fichier pour preparation future.
+- Aucun mecanisme d'API n'est implemente ici.
+- Sert principalement de squelette pour des experiments plus avances.
+- Organisation identique a l'acte 1 pour faciliter la progression.
+- Conserve une dependance tres reduite a la bibliotheque standard.

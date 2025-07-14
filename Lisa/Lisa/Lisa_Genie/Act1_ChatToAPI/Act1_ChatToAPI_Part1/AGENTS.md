@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les modules complotent, rires électroniques.
+- Contient un seul ScriptBidon.py servant d'exemple.
+- Le script ouvre un fichier texte externe et affiche le contenu nettoye.
+- Sert de debut minimal pour experimenter la lecture de fichiers.
+- Aucun package tiers requis hormis la lib standard.
+- Fait partie de la sequence Act1 montrant un flux basique.
+- Peut etre adapte pour tester l'envoi de donnees a une API ulterieure.
+- Reste un code tres court, uniquement a des fins de demonstration.

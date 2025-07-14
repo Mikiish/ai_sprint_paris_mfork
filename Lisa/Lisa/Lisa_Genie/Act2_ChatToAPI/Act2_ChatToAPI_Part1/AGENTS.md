@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Ici les bits s'agitent, clowns d'un jour agités.
+- Abrite le ScriptBidon.py de la seconde serie.
+- Effectue encore une simple lecture et impression de fichier.
+- Utilise la meme structure que dans Act1 pour la coherence.
+- Permet d'isoler chaque test de lecture dans un dossier dedie.
+- Aucun traitement supplementaire n'est ajoute.
+- Sert de base a d'eventuelles evolutions connectees a des APIs.
+- Reste un exemple epure limite aux entrees/sorties basiques.

@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les modules complotent, rires électroniques.
+- Troisieme acte avec la meme disposition que les precedents.
+- Les sous-dossiers contiennent chacun un ScriptBidon.py identique.
+- Ces scripts poursuivent l'exploration de lectures de fichiers simples.
+- Aucune integration d'API n'est encore presente.
+- Cet acte finalise la mise en place de la structure d'exemples.
+- Prepare la transition vers des modules plus complexes par la suite.
+- Reste minimaliste pour faciliter l'execution rapide.

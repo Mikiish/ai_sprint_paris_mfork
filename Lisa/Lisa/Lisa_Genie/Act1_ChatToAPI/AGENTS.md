@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Ici les bits s'agitent, clowns d'un jour agités.
+- Trois sous-dossiers contiennent chacun un petit script Python.
+- Chaque script lit un fichier texte et imprime les lignes nettoyees.
+- Les examples servent de brouillons pour un futur acces API.
+- Aucun appel reseau n'est present dans cette etape.
+- La structure de dossier reste identique entre Part1, Part2 et Part3.
+- Ces fragments illustrent des manipulations de fichiers simples.
+- Peu ou pas de dependances externes sont necessaires.

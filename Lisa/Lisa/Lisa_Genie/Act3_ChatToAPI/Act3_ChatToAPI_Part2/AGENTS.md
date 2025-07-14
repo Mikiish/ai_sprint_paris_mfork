@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Dans cette antre codée, l'humour pointe son nez.
+- Deuxieme sous-section de l'acte 3 avec toujours un ScriptBidon.py.
+- Comporte le meme traitement: lecture et affichage de fichier texte.
+- S'inscrit dans la continuite des exemples precedents.
+- Aucun lien externe ni dependance autre que la standard library.
+- Conserve le code tres court pour mise en place rapide.
+- Sert de base avant l'integration de fonctions plus complexes.
+- Simple demonstration de structure en dossiers separes.

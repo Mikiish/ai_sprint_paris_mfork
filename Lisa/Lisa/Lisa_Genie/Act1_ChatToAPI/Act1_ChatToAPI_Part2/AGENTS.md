@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les modules complotent, rires électroniques.
+- Contient un ScriptBidon.py jumeau de celui de la partie 1.
+- Lit un fichier texte et renvoie les lignes epurees a l'ecran.
+- Sert de repetition pour valider la structure du projet.
+- Aucun usage d'API externe a ce stade.
+- Les fichiers d'entree sont courts et purement demonstratifs.
+- Peut servir d'exercice pour manipuler fichiers et chemins.
+- L'ensemble reste tres compact et pedagogique.

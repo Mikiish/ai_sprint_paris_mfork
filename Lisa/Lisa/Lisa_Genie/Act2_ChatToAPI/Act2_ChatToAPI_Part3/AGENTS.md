@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Dans cette antre codée, l'humour pointe son nez.
+- Derniere partie de l'acte 2 avec toujours un unique ScriptBidon.py.
+- Ce script refait la meme lecture de fichier que ses precedents.
+- Il permet d'assurer la constance des tests entre chaque fragment.
+- Aucun appel a des services externes pour le moment.
+- Destine a etre enrichi une fois la phase de prototypage terminee.
+- Montre comment separer les essais dans plusieurs sous-dossiers.
+- Propose un exemple simple et replicable pour plus tard.

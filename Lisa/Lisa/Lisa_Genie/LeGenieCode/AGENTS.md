@@ -17,3 +17,10 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les scripts se chamaillent, farceurs d'informatique.
+- Dossier rempli de textes symboliques servant de sources d'inspiration.
+- Le script TestProbable.py explore la segmentation de graphemes avec la lib regex.
+- Les fichiers *_Python.txt et *_Nombre.txt contiennent des exemples codifies.
+- Utilise surtout des caracteres etrange pour illustrer le projet Genie.
+- Aucun programme complexe n'est lance directement depuis ici.
+- Sert de laboratoire pour ecrire ou tester des fragments experimentaux.
+- Fait office d'annexe pour les curieux du codage creatif.

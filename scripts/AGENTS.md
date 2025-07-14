@@ -17,3 +17,12 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Ici les bits s'agitent, clowns d'un jour agités.
+
+### Technical summary
+1. `0_container.sh` stops any existing container and launches a new ROCm-enabled Docker image with the repository mounted.
+2. `1_bench.sh` orchestrates benchmarking modes (server, perf, accuracy, profile, submit) using `vllm` and optional evaluation harnesses.
+3. Performance results are parsed by `show_results.py` to display throughput and latency metrics.
+4. Accuracy mode clones `lm-evaluation-harness` when needed to compute perplexity values.
+5. Profile mode collects traces for deeper analysis into `results_with_profile`.
+6. The `profile_without_hipgraph` folder holds an example JSON trace for offline viewing.
+7. A large `vllm/` directory resides here but is excluded from this summary.

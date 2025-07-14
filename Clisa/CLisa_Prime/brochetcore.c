@@ -6,7 +6,7 @@
 #include <stdint.h>  // types entiers fixes
 #include <string.h>  // memset & co
 #include <unistd.h>  // sysconf
-#include <time.h>    // srand, time
+#include <sys/random.h> // getrandom
 
 #define MAX_THREADS 256  // À adapter si besoin
 #define BYTE_PAIR_SIZE 2 // 2 bytes par élément
@@ -42,9 +42,12 @@ void* fill_buffer_worker(void* arg) {
     assign_thread_to_core(args->core_id);
 
     for (size_t i = 0; i < args->size; ++i) {
-        /* Génération pseudo-aléatoire très basique pour chaque byte */
-        uint8_t a = rand() % 256;
-        uint8_t b = rand() % 256;
+        /* Récupère deux octets directement depuis le noyau */
+        uint8_t a, b;
+        if (getrandom(&a, 1, 0) != 1 || getrandom(&b, 1, 0) != 1) {
+            perror("getrandom");
+            pthread_exit(NULL);
+        }
 
         size_t index = args->start_index + i * BYTE_PAIR_SIZE;
         args->buffer[index] = a;
@@ -112,9 +115,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    /* Initialisation de la graine pour rand() afin d'obtenir des valeurs
-       différentes à chaque exécution */
-    srand((unsigned)time(NULL));
+
 
     /* Nombre de paires de bytes à générer */
     size_t n_pairs = atoi(argv[1]);

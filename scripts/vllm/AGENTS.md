@@ -17,3 +17,6 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Les modules complotent, rires électroniques.
+
+### Note
+This folder contains a full fork of the `vllm` project. Its contents are large and remain untouched here.

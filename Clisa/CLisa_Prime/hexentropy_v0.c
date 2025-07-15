@@ -14,14 +14,14 @@ typedef struct {
 #define MAX_DEPTH 4      // limit recursive thread creation
 #define SMALL_CHUNK 32   // below this size we stop splitting
 
-// get a single random bit using getrandom
-static int random_bit() {
+// Return either 0x07 or 0x08 with equal probability
+static unsigned char rand_hexbit() {
     unsigned char b;
     if (getrandom(&b, 1, 0) != 1) {
         perror("getrandom");
         exit(EXIT_FAILURE);
     }
-    return b & 1;
+    return (b & 1) ? 0x08 : 0x07;
 }
 
 // Base case: fill the buffer sequentially
@@ -43,33 +43,32 @@ static void *hexentropy_worker(void *arg) {
     }
 
     pthread_t t1, t2;
-    size_t left_len, right_len, mid;
+    size_t mid;
 
     if (ctx.length % 2 == 0) {
-        // Even case: toss the coin first, then split (n-1)/2 recursively
-        left_len = (ctx.length - 1) / 2;
-        right_len = ctx.length - 1 - left_len;
-        mid = left_len;
+        // Even length: simply split in two equal halves
+        size_t half = ctx.length / 2;
+        WorkerCtx left = { ctx.buffer, half, ctx.depth + 1 };
+        WorkerCtx right = { ctx.buffer + half, half, ctx.depth + 1 };
+
+        pthread_create(&t1, NULL, hexentropy_worker, &left);
+        pthread_create(&t2, NULL, hexentropy_worker, &right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
     } else {
-        // Odd case: mid is exactly at n/2
-        left_len = ctx.length / 2;
-        right_len = ctx.length - left_len - 1;
-        mid = left_len;
+        // Odd length: place a nibble then recurse on both halves
+        mid = ctx.length / 2;
+        ctx.buffer[mid] = rand_hexbit();
+
+        size_t half = mid; // (length-1)/2
+        WorkerCtx left = { ctx.buffer, half, ctx.depth + 1 };
+        WorkerCtx right = { ctx.buffer + mid + 1, half, ctx.depth + 1 };
+
+        pthread_create(&t1, NULL, hexentropy_worker, &left);
+        pthread_create(&t2, NULL, hexentropy_worker, &right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
     }
-
-    // Store the pilouface result at the middle position
-    ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
-
-    // Prepare contexts for both halves
-    WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
-    WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
-
-    // Launch worker threads
-    pthread_create(&t1, NULL, hexentropy_worker, &left);
-    pthread_create(&t2, NULL, hexentropy_worker, &right);
-
-    pthread_join(t1, NULL);
-    pthread_join(t2, NULL);
     return NULL;
 }
 

@@ -14,24 +14,14 @@ typedef struct {
 #define MAX_DEPTH 4      // limit recursion to avoid CPU explosion
 #define SMALL_CHUNK 32   // below this, just fill sequentially
 
-// Return a random bit using getrandom
-static int random_bit() {
-    unsigned char b;
-    if (getrandom(&b, 1, 0) != 1) {
-        perror("getrandom");
-        exit(EXIT_FAILURE);
-    }
-    return b & 1;
-}
-
-// Return a random nibble (0-15)
+// Return a random nibble, either 0x07 or 0x08
 static unsigned char rand_hexbit() {
     unsigned char b;
     if (getrandom(&b, 1, 0) != 1) {
         perror("getrandom");
         exit(EXIT_FAILURE);
     }
-    return b & 0x0F;
+    return (b & 1) ? 0x08 : 0x07;
 }
 
 // Fill buffer with random bytes

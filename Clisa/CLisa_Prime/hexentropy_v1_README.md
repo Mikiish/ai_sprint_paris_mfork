@@ -5,9 +5,9 @@ Cette version expérimente une stratégie légèrement différente pour génére
 ## 7 points de réflexion (et tâches associées)
 1. **Division équilibrée** – Les longueurs paires sont coupées en deux segments identiques récursifs.
    *Tâche : mesurer la profondeur optimale en fonction du nombre de cœurs.*
-2. **Cas impair** – On place un nibble aléatoire au centre puis on lance la récursion sur les deux moitiés.
+2. **Cas impair** – On insère au centre le résultat de `rand_hexbit` puis on lance la récursion sur les deux moitiés.
    *Tâche : vérifier si ce choix réduit réellement la contention.*
-3. **Gestion du milieu** – Le byte central provient de `rand_hexbit` (valeur 0‑15).
+3. **Gestion du milieu** – `rand_hexbit` retourne soit `0x07` soit `0x08`.
    *Tâche : observer la distribution obtenue sur de grands volumes.*
 4. **Limites de tailles** – `SMALL_CHUNK` impose un seuil sous lequel on évite les threads.
    *Tâche : ajuster ce seuil pour ne pas gaspiller de ressources.*
@@ -19,21 +19,18 @@ Cette version expérimente une stratégie légèrement différente pour génére
    *Tâche : développer une variante C++ pour juger sur pièce.*
 
 ## Rôle global des fonctions
-- `random_bit` : renvoie un bit aléatoire.
 - `fill_random` : lecture séquentielle de `len` octets aléatoires.
-- `rand_hexbit` : génère une valeur aléatoire sur 4 bits.
+- `rand_hexbit` : renvoie aléatoirement `0x07` ou `0x08`.
 - `hexentropy_worker` : coeur récursif qui applique la stratégie pair/impair uniquement via la récursion.
 - `main` : prépare le buffer, lance la première tâche et affiche le résultat.
 
 ## Explications par blocs de code
 1. **Inclusions & structure** – on importe les bibliothèques de base et on définit `WorkerCtx` pour partager les paramètres.
 2. **Constantes** – `MAX_DEPTH` et `SMALL_CHUNK` bornent respectivement la profondeur et la granularité minimum.
-3. **random_bit** – lit un octet via `getrandom` et renvoie son bit de poids faible.
-4. **fill_random** – remplissage linéaire utilisé dans les cas de base.
-5. **rand_hexbit** – renvoie un demi‑octet aléatoire.
-6. **hexentropy_worker** – applique la division paire/impair entièrement via la récursion.
-7. **main** – parse l’argument `n`, alloue la mémoire et affiche la chaîne finale au format hexadécimal.
-
+3. **fill_random** – effectue un remplissage séquentiel dans les cas de base.
+4. **rand_hexbit** – renvoie `0x07` ou `0x08` selon l’entropie.
+5. **hexentropy_worker** – applique la logique paire/impair de manière récursive.
+6. **main** – parse l’argument `n`, alloue la mémoire et affiche la chaîne finale au format hexadécimal.
 ## Compilation
 ```bash
 gcc -pthread hexentropy_v1.c -o hexentropy_v1

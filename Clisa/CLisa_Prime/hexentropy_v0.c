@@ -61,15 +61,23 @@ static void *hexentropy_worker(void *arg) {
     ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
 
     // Prepare contexts for both halves
-    WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
-    WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
+    WorkerCtx *children = malloc(2 * sizeof(*children));
+    if (!children) {
+        perror("malloc");
+        exit(EXIT_FAILURE);
+    }
+    WorkerCtx *left = &children[0];
+    WorkerCtx *right = &children[1];
+    *left = (WorkerCtx){ ctx.buffer, left_len, ctx.depth + 1 };
+    *right = (WorkerCtx){ ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
 
     // Launch worker threads
-    pthread_create(&t1, NULL, hexentropy_worker, &left);
-    pthread_create(&t2, NULL, hexentropy_worker, &right);
+    pthread_create(&t1, NULL, hexentropy_worker, left);
+    pthread_create(&t2, NULL, hexentropy_worker, right);
 
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
+    free(children);
     return NULL;
 }
 

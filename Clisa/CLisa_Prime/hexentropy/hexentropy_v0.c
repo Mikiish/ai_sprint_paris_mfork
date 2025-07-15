@@ -43,12 +43,19 @@ static void *hexentropy_worker(void *arg) {
 
     size_t half = ctx.length / 2;
     pthread_t t1, t2;
-    WorkerCtx left = { ctx.buffer, half, ctx.depth + 1 };
-    WorkerCtx right = { ctx.buffer + half + (ctx.length % 2), half, ctx.depth + 1 };
+    WorkerCtx *children = malloc(2 * sizeof(*children));
+    if (!children) {
+        perror("malloc");
+        exit(EXIT_FAILURE);
+    }
+    WorkerCtx *left = &children[0];
+    WorkerCtx *right = &children[1];
+    *left = (WorkerCtx){ ctx.buffer, half, ctx.depth + 1 };
+    *right = (WorkerCtx){ ctx.buffer + half + (ctx.length % 2), half, ctx.depth + 1 };
 
     // launch worker threads for both halves
-    pthread_create(&t1, NULL, hexentropy_worker, &left);
-    pthread_create(&t2, NULL, hexentropy_worker, &right);
+    pthread_create(&t1, NULL, hexentropy_worker, left);
+    pthread_create(&t2, NULL, hexentropy_worker, right);
 
     // odd length: set middle byte using a coin flip (0x00 or 0x07)
     if (ctx.length % 2) {
@@ -57,6 +64,7 @@ static void *hexentropy_worker(void *arg) {
 
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
+    free(children);
     return NULL;
 }
 

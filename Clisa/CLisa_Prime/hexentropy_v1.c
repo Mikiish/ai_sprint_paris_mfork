@@ -62,25 +62,41 @@ static void *hexentropy_worker(void *arg) {
         mid = left_len;
         ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
 
-        WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
-        WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
-        pthread_create(&t1, NULL, hexentropy_worker, &left);
-        pthread_create(&t2, NULL, hexentropy_worker, &right);
+        WorkerCtx *children = malloc(2 * sizeof(*children));
+        if (!children) {
+            perror("malloc");
+            exit(EXIT_FAILURE);
+        }
+        WorkerCtx *left = &children[0];
+        WorkerCtx *right = &children[1];
+        *left = (WorkerCtx){ ctx.buffer, left_len, ctx.depth + 1 };
+        *right = (WorkerCtx){ ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
+        pthread_create(&t1, NULL, hexentropy_worker, left);
+        pthread_create(&t2, NULL, hexentropy_worker, right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
+        free(children);
     } else {
         // Odd length: coin toss and fill both halves without recursion
         left_len = ctx.length / 2;
         right_len = ctx.length - left_len - 1;
         mid = left_len;
         ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
-
-        WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
-        WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
-        pthread_create(&t1, NULL, fill_random_thread, &left);
-        pthread_create(&t2, NULL, fill_random_thread, &right);
+        WorkerCtx *children = malloc(2 * sizeof(*children));
+        if (!children) {
+            perror("malloc");
+            exit(EXIT_FAILURE);
+        }
+        WorkerCtx *left = &children[0];
+        WorkerCtx *right = &children[1];
+        *left = (WorkerCtx){ ctx.buffer, left_len, ctx.depth + 1 };
+        *right = (WorkerCtx){ ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
+        pthread_create(&t1, NULL, fill_random_thread, left);
+        pthread_create(&t2, NULL, fill_random_thread, right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
+        free(children);
     }
-
-    pthread_join(t1, NULL);
-    pthread_join(t2, NULL);
     return NULL;
 }
 

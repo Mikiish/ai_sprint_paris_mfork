@@ -9,9 +9,9 @@ Ce programme expérimente une génération récursive et multithreadée d'une ch
 2. **Granularité minimum** –
    Passer en mode séquentiel pour les petits blocs (`SMALL_CHUNK`).
    *Tâche : mesurer l'impact sur la performance et ajuster.*
-3. **Pile ou face hexadécimal** –
-   Pour les tailles impaires, un bit aléatoire décide entre `0x00` et `0x07` au centre.
-   *Tâche : essayer d'autres valeurs ou un vrai hexadécimal aléatoire.*
+3. **Insertion aléatoire systématique** –
+   À chaque niveau, `rand_hexbit` choisit `0x07` ou `0x08` pour l’octet central.
+   *Tâche : contrôler la distribution obtenue en profondeur.*
 4. **Risque de contention mémoire** –
    Plusieurs threads écrivent dans un même buffer.
    *Tâche : profiler l'impact sur de grandes tailles.*
@@ -26,14 +26,14 @@ Ce programme expérimente une génération récursive et multithreadée d'une ch
    *Tâche : tester une version C++ pour comparer la latence et le confort de code.*
 
 ## Fonctions principales
-- `random_bit` : récupère un bit aléatoire via `getrandom`.
+- `rand_hexbit` : fournit `0x07` ou `0x08` avec une probabilité uniforme.
 - `fill_random` : remplit séquentiellement un morceau du buffer.
-- `hexentropy_worker` : fonction récursive appelée par chaque thread.
+- `hexentropy_worker` : applique la récursion en divisant toujours le segment et en insérant l’octet de `rand_hexbit`.
 - `main` : parse la taille, alloue le buffer et lance la génération.
 
 ## Compilation
 ```bash
-gcc -pthread hexentropy_v0.c -o hexentropy_v0
+gcc -std=c11 -pthread hexentropy_v0.c -o hexentropy_v0
 ```
 
 ## Un mot sur C vs C++

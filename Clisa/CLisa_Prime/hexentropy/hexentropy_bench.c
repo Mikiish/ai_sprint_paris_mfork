@@ -8,7 +8,7 @@
 // === CONFIGURATION ===
 #define ITERATIONS 10000
 #define ENTROPY_SIZE 1031  // bytes
-#define MAX_DEPTH 4
+#define MAX_DEPTH 8
 #define SMALL_CHUNK 32
 
 typedef struct {

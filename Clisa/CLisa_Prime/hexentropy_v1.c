@@ -62,24 +62,45 @@ static void *hexentropy_worker(void *arg) {
         // Even length: split evenly and recurse on both halves
         half = ctx.length / 2;
 
-        WorkerCtx left = { ctx.buffer, half, ctx.depth + 1 };
-        WorkerCtx right = { ctx.buffer + half, half, ctx.depth + 1 };
-        pthread_create(&t1, NULL, hexentropy_worker, &left);
-        pthread_create(&t2, NULL, hexentropy_worker, &right);
+        WorkerCtx *left = malloc(sizeof(WorkerCtx));
+        WorkerCtx *right = malloc(sizeof(WorkerCtx));
+        if (!left || !right) {
+            perror("malloc");
+            free(left); free(right);
+            exit(EXIT_FAILURE);
+        }
+        *left = (WorkerCtx){ ctx.buffer, half, ctx.depth + 1 };
+        *right = (WorkerCtx){ ctx.buffer + half, half, ctx.depth + 1 };
+        pthread_create(&t1, NULL, hexentropy_worker, left);
+        pthread_create(&t2, NULL, hexentropy_worker, right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
+        free(left);
+        free(right);
+        return NULL;
     } else {
         // Odd length: insert one random nibble then recurse on each half
         half = (ctx.length - 1) / 2;
         ctx.buffer[half] = rand_hexbit();
 
-        WorkerCtx left = { ctx.buffer, half, ctx.depth + 1 };
-        WorkerCtx right = { ctx.buffer + half + 1, half, ctx.depth + 1 };
-        pthread_create(&t1, NULL, hexentropy_worker, &left);
-        pthread_create(&t2, NULL, hexentropy_worker, &right);
+        WorkerCtx *left = malloc(sizeof(WorkerCtx));
+        WorkerCtx *right = malloc(sizeof(WorkerCtx));
+        if (!left || !right) {
+            perror("malloc");
+            free(left); free(right);
+            exit(EXIT_FAILURE);
+        }
+        *left = (WorkerCtx){ ctx.buffer, half, ctx.depth + 1 };
+        *right = (WorkerCtx){ ctx.buffer + half + 1, half, ctx.depth + 1 };
+        pthread_create(&t1, NULL, hexentropy_worker, left);
+        pthread_create(&t2, NULL, hexentropy_worker, right);
+        pthread_join(t1, NULL);
+        pthread_join(t2, NULL);
+        free(left);
+        free(right);
+        return NULL;
     }
 
-    pthread_join(t1, NULL);
-    pthread_join(t2, NULL);
-    return NULL;
 }
 
 int main(int argc, char *argv[]) {

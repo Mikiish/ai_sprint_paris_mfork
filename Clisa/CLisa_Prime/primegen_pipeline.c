@@ -1,3 +1,4 @@
+#include <unistd.h>   // <-- sysconf(), _SC_NPROCESSORS_ONLN
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

@@ -4,6 +4,25 @@
 #include <sys/random.h>
 #include <string.h>
 
+/*-----------------------------------------------------------------------
+ * Helper: print_binary
+ *   Display a buffer in binary, grouping bits by nibble for readability.
+ *   Each byte is printed MSB first with spaces between nibbles and bytes.
+ *---------------------------------------------------------------------*/
+static void print_binary(const unsigned char *buf, size_t len) {
+    for (size_t i = 0; i < len; ++i) {
+        unsigned char b = buf[i];
+        for (int bit = 7; bit >= 0; --bit) {
+            printf("%d", (b >> bit) & 1);
+            if (bit % 4 == 0 && bit != 0)
+                putchar(' ');  // separate nibbles
+        }
+        if (i != len - 1)
+            putchar(' ');      // separate bytes
+    }
+    putchar('\n');
+}
+
 // Context passed to each thread
 typedef struct {
     unsigned char *buffer;  // pointer to buffer region
@@ -39,7 +58,12 @@ static void *fill_random_thread(void *arg) {
     return NULL;
 }
 
-// Recursive worker implementing the described strategy
+/*-----------------------------------------------------------------------
+ * hexentropy_worker
+ *   Recursive worker implementing the parity-based strategy. The buffer is
+ *   split in two halves and processed in parallel. Even segments recurse,
+ *   odd segments spawn simple fill threads.
+ *---------------------------------------------------------------------*/
 static void *hexentropy_worker(void *arg) {
     WorkerCtx ctx = *(WorkerCtx *)arg; // copy context
 
@@ -85,27 +109,41 @@ static void *hexentropy_worker(void *arg) {
 }
 
 int main(int argc, char *argv[]) {
-    size_t n = 64; // default length
-    if (argc > 1) {
-        n = strtoul(argv[1], NULL, 10);
-        if (n == 0) {
-            fprintf(stderr, "Invalid length\n");
-            return EXIT_FAILURE;
+    size_t n = 64;   // default length
+    int binary = 0;  // output mode flag
+
+    /* Parse command line arguments */
+    for (int i = 1; i < argc; ++i) {
+        if (strcmp(argv[i], "--binary") == 0) {
+            binary = 1;
+        } else {
+            n = strtoul(argv[i], NULL, 10);
+            if (n == 0) {
+                fprintf(stderr, "Invalid length\n");
+                return EXIT_FAILURE;
+            }
         }
     }
 
+    /* Allocate output buffer */
     unsigned char *buffer = malloc(n);
     if (!buffer) {
         perror("malloc");
         return EXIT_FAILURE;
     }
 
+    /* Launch recursive generation */
     WorkerCtx root = { buffer, n, 0 };
     hexentropy_worker(&root);
 
-    for (size_t i = 0; i < n; ++i)
-        printf("%02x", buffer[i]);
-    printf("\n");
+    /* Display final buffer */
+    if (binary)
+        print_binary(buffer, n);
+    else {
+        for (size_t i = 0; i < n; ++i)
+            printf("%02x", buffer[i]);
+        printf("\n");
+    }
 
     free(buffer);
     return 0;

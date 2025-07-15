@@ -23,7 +23,7 @@ Cette version expérimente une stratégie légèrement différente pour génére
 - `fill_random` : lecture séquentielle de `len` octets aléatoires.
 - `fill_random_thread` : simple enveloppe pour lancer `fill_random` dans un thread.
 - `hexentropy_worker` : coeur récursif qui applique la stratégie pair/impair.
-- `main` : prépare le buffer, lance la première tâche et affiche le résultat.
+- `main` : prépare le buffer, lance la première tâche et affiche le résultat (hexadécimal ou binaire selon l'option `--binary`).
 
 ## Explications par blocs de code
 1. **Inclusions & structure** – on importe les bibliothèques de base et on définit `WorkerCtx` pour partager les paramètres.
@@ -32,7 +32,20 @@ Cette version expérimente une stratégie légèrement différente pour génére
 4. **fill_random** – remplissage linéaire utilisé dans les cas de base.
 5. **fill_random_thread** – petite fonction pour lancer `fill_random` en thread.
 6. **hexentropy_worker** – selon la parité, lance soit de nouveaux workers (pair), soit des threads simples (impair) après avoir écrit le byte central.
-7. **main** – parse l’argument `n`, alloue la mémoire et affiche la chaîne finale au format hexadécimal.
+7. **main** – parse les arguments (`n` et `--binary`), alloue la mémoire et affiche la chaîne finale au format demandé.
+
+## Bibliothèques utilisées
+- `stdio.h` : fonctions d'affichage (`printf`).
+- `stdlib.h` : allocation mémoire et codes d'erreur.
+- `pthread.h` : création et synchronisation des threads.
+- `sys/random.h` : accès à l'entropie noyau via `getrandom`.
+- `string.h` : comparaison de chaînes (`strcmp`).
+
+## Utilisation
+```
+./hexentropy_v1 [n] [--binary]
+```
+L'option `--binary` affiche le buffer généré en bits, groupés par nibble (quatre bits). Sans cette option, la sortie reste en hexadécimal.
 
 ## Compilation
 ```bash

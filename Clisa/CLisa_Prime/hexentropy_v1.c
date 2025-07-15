@@ -24,6 +24,16 @@ static int random_bit() {
     return b & 1;
 }
 
+// Return either 0x07 or 0x08 chosen at random
+static unsigned char rand_hexbit(void) {
+    unsigned char b;
+    if (getrandom(&b, 1, 0) != 1) {
+        perror("getrandom");
+        exit(EXIT_FAILURE);
+    }
+    return (b & 1) ? 0x07 : 0x08;
+}
+
 // Fill buffer with random bytes
 static void fill_random(unsigned char *buf, size_t len) {
     if (getrandom(buf, len, 0) != (ssize_t)len) {
@@ -60,7 +70,7 @@ static void *hexentropy_worker(void *arg) {
         left_len = (ctx.length - 1) / 2;
         right_len = ctx.length - left_len - 1;
         mid = left_len;
-        ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
+        ctx.buffer[mid] = rand_hexbit();
 
         WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
         WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };
@@ -71,7 +81,7 @@ static void *hexentropy_worker(void *arg) {
         left_len = ctx.length / 2;
         right_len = ctx.length - left_len - 1;
         mid = left_len;
-        ctx.buffer[mid] = random_bit() ? 0x07 : 0x00;
+        ctx.buffer[mid] = rand_hexbit();
 
         WorkerCtx left = { ctx.buffer, left_len, ctx.depth + 1 };
         WorkerCtx right = { ctx.buffer + mid + 1, right_len, ctx.depth + 1 };

@@ -6,7 +6,7 @@
 #include <time.h>
 
 // === CONFIGURATION ===
-#define ITERATIONS 10000000
+#define ITERATIONS 10000
 #define ENTROPY_SIZE 1031  // bytes
 #define MAX_DEPTH 4
 #define SMALL_CHUNK 32
@@ -98,7 +98,7 @@ int main() {
     printf("\nDone.\nTotal time: %.3f seconds\n", elapsed);
     printf("Throughput: %.2f calls/sec\n", ITERATIONS / elapsed);
     printf("Approx. entropy generated: %.2f GB\n", 
-           (double)(ITERATIONS * ENTROPY_SIZE) / (1024 * 1024 * 1024));
+           (double)((unsigned long long)ITERATIONS * ENTROPY_SIZE) / (1024 * 1024 * 1024));
 
     return 0;
 }

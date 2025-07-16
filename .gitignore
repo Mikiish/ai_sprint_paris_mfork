@@ -1,4 +1,12 @@
 # Ignorer les dossiers clonés localement à ne pas pusher
+.env
+.env/
+.venv
+.venv/
+env
+env/
+venv
+venv/
 Clisa/CLisa_Prime/popcorn-cli/
 Clisa/CLisa_Prime/triton/
 

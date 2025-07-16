@@ -9,6 +9,7 @@ venv
 venv/
 Clisa/CLisa_Prime/popcorn-cli/
 Clisa/CLisa_Prime/triton/
+install_kdb_files_for_pytorch_wheels.sh
 
 # En bonus : ignorer les fichiers temporaires
 *.o

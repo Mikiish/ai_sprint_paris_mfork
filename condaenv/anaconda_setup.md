@@ -46,12 +46,11 @@ export ROCM_VERSION=6.4.1
 
 Start a docker container :
 ```bash
-#!/bin/bash
-set -e
-
 docker pull rocm/pytorch:latest-base
 docker run -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest-base
-
+```
+Then run the following script inside the docker container.
+```bash
 cd ~
 git clone https://github.com/pytorch/pytorch.git
 cd pytorch
@@ -62,6 +61,10 @@ export PYTORCH_ROCM_ARCH=gfx942
 
 Then run the command `echo $?`
 
+---
+
+From a new terminal you can use the following command to check if PyTorch is working.
+`python3 -c 'import torch; print(torch.cuda.is_available())'`
 
 Check all info on official doc : [https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/pytorch-install.html#using-wheels-package]
 

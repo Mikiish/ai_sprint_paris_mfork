@@ -18,7 +18,7 @@ pip3 install --pre torch torchvision torchaudio --index-url https://download.pyt
 Create and activate conda environnement with the following command :
 ```bash
 conda init --all
-conda create -y -n condatorch
+conda create -y -n condatorch torch
 conda activate condatorch
 ```
 
@@ -61,3 +61,7 @@ export PYTORCH_ROCM_ARCH=gfx942
 ```
 
 Then run the command `echo $?`
+
+
+Check all info on official doc : [https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/pytorch-install.html#using-wheels-package]
+

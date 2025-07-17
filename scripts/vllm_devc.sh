@@ -1,7 +1,6 @@
 #!/bin/bash
 # This script is used to set up the vLLM development environment.
 set -e
-cd scripts
 git clone https://github.com/vllm-project/vllm.git
 echo "[+] vLLM repository cloned successfully. Apply devpatch..."
 chmod +x ./0_container.sh

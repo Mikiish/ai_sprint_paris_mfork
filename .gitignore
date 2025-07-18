@@ -11,7 +11,8 @@ Clisa/CLisa_Prime/popcorn-cli/
 Clisa/CLisa_Prime/triton/
 install_kdb_files_for_pytorch_wheels.sh
 Anaconda3-2025.06-0-Linux-x86_64.sh
-
+cryptodex
+cryptodex/
 # En bonus : ignorer les fichiers temporaires
 *.o
 *.log

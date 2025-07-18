@@ -9,7 +9,7 @@
 ;;;;  • S’exécute :  sbcl --script secret_hash.lisp
 ;;;;
 ;;;;  (Ajoute `export API_TOKEN="..."` à ton shell avant d’appeler.)
-(load (merge-pathnames "quicklisp/setup.lisp"(user-homedir-pathname)))
+(load (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname)))
 
 (ql:quickload :ironclad)
 (ql:quickload :uiop)
@@ -36,7 +36,7 @@
 
 (defun final-hash (user-input)
   "Compute SHA256(SHA256(token) ‖ user-input)."
-  (let* ((token-hash (sha256-hex (getenv-or-fail "API_TOKEN")))
+  (let* ((token-hash (sha256-hex (getenv-or-fail "API_KEY")))
          (concat      (concatenate 'string token-hash user-input)))
     (sha256-hex concat)))
 
@@ -45,6 +45,6 @@
   (let ((result (final-hash user-input)))
     (format t "~a~%" result)))
 ;; Silent exit when run as script.
-#+sbcl (main (uiop:getenv "API_TOKEN"))
+#+sbcl (main (uiop:getenv "USER_INPUT"))
 ;; ------------------------------------------------------------
 ;; End of script.

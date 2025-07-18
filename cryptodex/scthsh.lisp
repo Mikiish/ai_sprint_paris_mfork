@@ -1,14 +1,5 @@
-;;;; secret_hash.lisp
-;;;; ------------------------------------------------------------
-;;;;  One‑shot LISP program that reads the secret TOKEN from the
-;;;;  environment variable API_TOKEN, hashes it (SHA‑256), puis
-;;;;  hash(SHA256(TOKEN) || user‑string) and prints the final hex.
-;;;;
-;;;;  • Aucune donnée secrète n’est hard‑codée.
-;;;;  • Nécessite Quicklisp + Ironclad (crypto).
-;;;;  • S’exécute :  sbcl --script secret_hash.lisp
-;;;;
-;;;;  (Ajoute `export API_TOKEN="..."` à ton shell avant d’appeler.)
+;;;; secret_hash
+
 (load (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname)))
 (with-output-to-string (*standard-output*)
   (ql:quickload '(:ironclad :babel :uiop :alexandria :cl-ppcre)))

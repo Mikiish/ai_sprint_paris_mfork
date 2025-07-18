@@ -1,8 +1,0 @@
-# Domains required to fetch dependencies
-archive.ubuntu.com
-security.ubuntu.com
-deb.debian.org
-github.com
-boost.org
-download.qt.io
-launchpad.net

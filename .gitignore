@@ -15,7 +15,8 @@ cryptodexx/cryptodex
 cryptodexx/cryptodex/
 Lisaa/Lisa
 Lisaa/Lisa/
-
+Clisaa/Clisa
+Clisaa/Clisa/
 # En bonus : ignorer les fichiers temporaires
 *.o
 *.log

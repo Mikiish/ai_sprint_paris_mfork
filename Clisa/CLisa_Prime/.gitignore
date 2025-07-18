@@ -1,7 +1,0 @@
-# Binaries
-/primegen
-/*.out
-/build/
-*.o
-*.a
-*.so

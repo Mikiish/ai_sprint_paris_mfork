@@ -1,4 +1,4 @@
-### Visit [https://github.com/Mikiish/Clisa] for more information.
+### Visit [https://github.com/Mikiish/Clisa] for more infos...
 
 ```bash
 cd Clisaa

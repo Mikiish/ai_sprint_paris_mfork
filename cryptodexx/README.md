@@ -1,4 +1,4 @@
-### Visit [https://github.com/mikiish/cryptodex]
+### Visit [https://github.com/mikiish/cryptodex] for more infos...
 
 ```bash
 cd cryptodexx

@@ -1,0 +1,6 @@
+;; cryptodex-requirements.lisp
+:ironclad
+:babel
+:uiop
+:alexandria
+:cl-ppcre

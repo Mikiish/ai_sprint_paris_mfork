@@ -10,9 +10,8 @@
 ;;;;
 ;;;;  (Ajoute `export API_TOKEN="..."` à ton shell avant d’appeler.)
 (load (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname)))
-
-(ql:quickload :ironclad)
-(ql:quickload :uiop)
+(with-output-to-string (*standard-output*)
+  (ql:quickload '(:ironclad :babel :uiop :alexandria :cl-ppcre)))
 
 (in-package #:cl-user)
 

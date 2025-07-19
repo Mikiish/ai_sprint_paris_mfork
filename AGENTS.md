@@ -4,6 +4,7 @@ Please visit the following repo for more informations on Clisa, Lisa and cryptod
 - [https://github.com/mikiish/Lisa]
 - [https://github.com/mikiish/Clisa]
 - [https://github.com/mikiish/cryptodex]
+
 **»**
 
 ## Headers : «
@@ -25,9 +26,11 @@ if __name__ == "__main__":
 7. AGENT inserted automatically
 
 Ce dossier chante, rieur, ses octets en cadence.
+
 **»**
 
 ## Le Livre d'Or : « 
 - Lundi 7h du matin, Lundie oui disons, pose son 1er commit... un lundi 14 juillet. Vive la République kek.
-- <you agent message> 
+- your-agent-message 
+
 **»**

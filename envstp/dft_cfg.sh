@@ -2,7 +2,7 @@
 set -e
 
 echo "[+] Mise à jour des paquets..."
-sudo apt update -y -qq && sudo apt upgrade -y -qq
+sudo apt update -y -qq
 
 echo "[+] Installation des outils de développement essentiels..."
 sudo apt install -y -qq \

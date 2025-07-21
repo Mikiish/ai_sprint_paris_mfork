@@ -2,10 +2,10 @@
 set -e
 
 echo "[+] Mise à jour des paquets..."
-sudo apt update -y && sudo apt upgrade -y
+sudo apt update -y -qq && sudo apt upgrade -y -qq
 
 echo "[+] Installation des outils de développement essentiels..."
-sudo apt install -y \
+sudo apt install -y -qq \
     build-essential \
     cmake \
     make \
@@ -13,7 +13,7 @@ sudo apt install -y \
     gcc \
 
 echo "[+] Installation des outils de développement et de débogage pratiques..."
-sudo apt install -y \
+sudo apt install -y -qq \
     git \
     curl \
     wget \
@@ -23,7 +23,7 @@ sudo apt install -y \
     jq
 
 echo "[+] Installation des outils Python (pip, venv, setuptools)..."
-sudo apt install -y \
+sudo apt install -y -qq \
     python3 \
     python3-pip \
     python3-venv \

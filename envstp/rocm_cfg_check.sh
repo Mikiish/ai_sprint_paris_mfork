@@ -32,12 +32,12 @@ echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.
     | sudo tee --append /etc/apt/sources.list.d/rocm.list
 echo -e 'Package: *\nPin: release o=repo.radeon.com\nPin-Priority: 600' \
     | sudo tee /etc/apt/preferences.d/rocm-pin-600
-sudo apt update
-sudo apt install rocm
+sudo apt update -qq
+sudo apt install -qq rocm
 
 # Post-installation instructions
-sudo apt install python3-setuptools python3-wheel
-sudo apt install environment-modules
+sudo apt install -qq python3-setuptools python3-wheel
+sudo apt install -qq environment-modules
 sudo usermod -a -G video,render $LOGNAME
 sudo usermod -a -G video,render root
 

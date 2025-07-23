@@ -13,6 +13,7 @@ install_kdb_files_for_pytorch_wheels.sh
 Anaconda3-2025.06-0-Linux-x86_64.sh
 cryptodexx/cryptodex
 cryptodexx/cryptodex/
+codext/
 Lisaa/Lisa
 Lisaa/Lisa/
 Clisaa/Clisa
